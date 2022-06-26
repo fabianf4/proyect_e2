@@ -3,7 +3,6 @@ const Truck = require('../models/truck_model')
 module.exports = {
     index : async (req,res)  => {
         try{
-            const {plate} = req.params
             const result = await Truck.find()
 
             res.status(200).json({"result": true, "data": result})
