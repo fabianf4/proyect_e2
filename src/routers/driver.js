@@ -10,7 +10,7 @@ const {index, addDriver, findDriver, updateDriver, deleteDriver, addTruckForDriv
 //create
 router.post('/', addDriver)
 //addTruck for Driver
-router.patch('/addTruck/:plate', addTruckForDriver)
+router.patch('/addTruck/:identyCard', addTruckForDriver)
 //read
 router.get('/', index)
 //find
