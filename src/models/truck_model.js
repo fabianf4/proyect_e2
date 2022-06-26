@@ -5,7 +5,12 @@ const truckSchema = new Schema({
     plate : {
         type: String,
         require: true,
-        unique: true
+        unique: true,
+        match: new RegExp('[A-Z]{3}[-][0-9]{3}$')
+    },
+    brand :{
+        type: String,
+        require: true
     },
     model : {
         type: Date,
