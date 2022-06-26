@@ -14,6 +14,7 @@ module.exports = {
         try{
 
             const truck = new Truck(req.body)
+
             const result = await truck.save()
 
             res.status(200).json({"result": true, "data":truck})
