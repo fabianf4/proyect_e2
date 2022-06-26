@@ -54,6 +54,16 @@ module.exports = {
             res.status(500).json({"result": false, "info": e})
         }
     },
+    addTruckForDriver: async(req, res) =>{
+        const {plate} = req.params
+        if(!!truck){
+            const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone, truck})
+            res.status(200).json({"result": true, "data": result, "truck": true})
+        }else{
+            const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone})
+            res.status(200).json({"result": true, "data": result, "truck": false})
+        }
+    },
     deleteDriver : async (req,res) => {
         try{
             const {identyCard} = req.params

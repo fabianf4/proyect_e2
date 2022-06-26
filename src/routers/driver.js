@@ -5,10 +5,12 @@ const router = new Router()
 
 require('../controllers/controll_drivers')
 
-const {index, addDriver, findDriver, updateDriver, deleteDriver } = require('../controllers/controll_drivers');
+const {index, addDriver, findDriver, updateDriver, deleteDriver, addTruckForDriver } = require('../controllers/controll_drivers');
 
 //create
 router.post('/', addDriver)
+//addTruck for Driver
+router.patch('/addTruck/:plate', addTruckForDriver)
 //read
 router.get('/', index)
 //find
