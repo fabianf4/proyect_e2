@@ -27,7 +27,7 @@ module.exports = {
             
             const result = await Truck.findOne({"plate": plate})
 
-            res.status(200).json({"result": !!result, "data": result})
+            res.status(200).json({"result": true, "data": result})
         }catch (e){
             res.status(500).json({"result": false, "info": e})
         }
