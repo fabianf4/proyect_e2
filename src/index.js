@@ -15,7 +15,7 @@ app.use(express.json())
 
 //routers
 app.use('/truck', require('./routers/truck'));
-
+app.use('/driver', require('./routers/driver'));
 //upp aPI
 app.listen(PORT, ()=>{
     console.log(`Api initialized on port: ${PORT}`)
