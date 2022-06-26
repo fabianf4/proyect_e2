@@ -1,4 +1,5 @@
 const Driver = require('../models/driver_model')
+const Truck= require('../models/truck_model')
 
 module.exports = {
     index : async (req,res)  => {
@@ -36,10 +37,19 @@ module.exports = {
         try{
             
             const {identyCard} = req.params
-            const {names, lastName , birth, cellPhone}= req.body
-            const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone})
-
-            res.status(200).json({"result": true, "data": result})
+            const {names, lastName , birth, cellPhone, plate}= req.body
+            const truck= await Truck.findOne({plate})
+            console.log(truck)
+           
+            if(!!truck){
+                const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone, truck})
+                res.status(200).json({"result": true, "data": result, "truck": true})
+            }else{
+                const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone})
+                res.status(200).json({"result": true, "data": result, "truck": false})
+            }
+            
+           
         }catch (e){
             res.status(500).json({"result": false, "info": e})
         }
