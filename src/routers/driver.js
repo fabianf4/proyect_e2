@@ -14,7 +14,7 @@ router.get('/', index)
 //find
 router.get('/:identyCard', findDriver)
 //update
-router.put('/:identyCard', updateDriver)
+router.patch('/:identyCard', updateDriver)
 //delete
 router.delete('/:identyCard', deleteDriver)
 

@@ -12,7 +12,7 @@ router.get('/', index)
 //find
 router.get('/:plate', findTruck)
 //update
-router.put('/:plate', updateTruck)
+router.patch('/:plate', updateTruck)
 //delete
 router.delete('/:plate', deleteTruck)
 

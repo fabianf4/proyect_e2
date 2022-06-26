@@ -36,8 +36,8 @@ module.exports = {
         try{
             
             const {identyCard} = req.params
-            const driver= req.body
-            const result = await Driver.findOneAndReplace(identyCard, driver)
+            const {names, lastName , birth, cellPhone}= req.body
+            const result = await Driver.findOneAndUpdate({identyCard}, {names, lastName , birth, cellPhone})
 
             res.status(200).json({"result": true, "data": result})
         }catch (e){

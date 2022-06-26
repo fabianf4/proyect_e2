@@ -16,7 +16,7 @@ module.exports = {
             const truck = new Truck(req.body)
             const result = await truck.save()
 
-            res.status(200).json({"result": result, "data":truck})
+            res.status(200).json({"result": true, "data":truck})
         }catch (e){
             res.status(500).json({"result": false, "info": e})
         }
@@ -35,8 +35,9 @@ module.exports = {
     updateTruck : async (req,res) => {
         try{
             const {plate} = req.params
-            const truck= req.body
-            const result = await Truck.findOneAndReplace(plate, truck)
+            console.log(plate)
+            const {brand,model,weight}= req.body
+            const result = await Truck.findOneAndUpdate({plate}, {brand,model,weight})
 
             res.status(200).json({"result": true, "data": result})
         }catch (e){
