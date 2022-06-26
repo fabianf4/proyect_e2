@@ -7,10 +7,10 @@ module.exports = {
     addTruck : async (req,res) => {
         try{
 
-            const client = new Truck(req.body)
-            const result = await client.save()
+            const truck = new Truck(req.body)
+            const result = await truck.save()
 
-            res.status(200).json({result: true, client})
+            res.status(200).json({result: true, truck})
         }catch (e){
             res.status(500).json({result: false, info: e})
         }
