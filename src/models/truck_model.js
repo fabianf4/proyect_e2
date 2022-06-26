@@ -20,6 +20,10 @@ const truckSchema = new Schema({
         type: Number,
         require: true
     },
+    driver: {
+        type:Schema.Types.ObjectId,
+        ref: 'driver'
+    }
 
 
 })

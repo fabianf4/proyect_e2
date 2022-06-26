@@ -56,4 +56,5 @@ module.exports = {
             res.status(500).json({"result": false, "info": e})
         }
     }
+
 }
