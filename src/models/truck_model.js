@@ -19,7 +19,8 @@ const truckSchema = new Schema({
     weight : {
         type: Number,
         require: true
-    }
+    },
+
 
 })
 
