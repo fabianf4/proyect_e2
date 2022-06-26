@@ -14,12 +14,14 @@ const truckSchema = new Schema({
     },
     model : {
         type: Date,
+        match: new RegExp('[0-9]{4}[-][0-9]{2}[-][0-9]{2}'),
         require: true
     },
     weight : {
         type: Number,
         require: true
-    }
+    },
+
 
 })
 
