@@ -1,5 +1,5 @@
 const Truck = require('../models/truck_model')
-
+//a ver
 module.exports = {
     index : async (req,res)  => {
         try{
