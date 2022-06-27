@@ -21,7 +21,7 @@ const truckSchema = new Schema({
         require: true
     },
     driver: {
-        type:Schema.Types.ObjectId,
+        type: String,
         ref: 'driver'
     }
 

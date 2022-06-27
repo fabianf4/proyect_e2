@@ -1,5 +1,4 @@
 const Driver = require('../models/driver_model')
-const Truck= require('../models/truck_model')
 
 module.exports = {
     index : async (req,res)  => {
@@ -15,7 +14,7 @@ module.exports = {
         try{
 
             const driver = new Driver(req.body)
-            const result = await driver.save()
+            await driver.save()
 
             res.status(200).json({"result": true, "data":driver})
         }catch (e){
@@ -43,27 +42,6 @@ module.exports = {
            
         }catch (e){
             res.status(500).json({"result": false, "info": e})
-        }
-    },
-    addTruckForDriver: async(req, res) =>{
-        const {identyCard} = req.params
-        const {plate}= req.body
-
-        const truck= await Truck.findOne({plate})
-        const driver = await Driver.findOne({identyCard})
-
-        if(!truck.driver && !driver.truck){
-            console.log("si")
-        }else{
-            console.log("no")
-        }
-
-        if((!!truck && !!driver) && (!truck.driver && !driver.truck)){
-            const dataDriver = await Driver.findOneAndUpdate({identyCard}, {truck})
-            const dataTruck = await Truck.findOneAndUpdate({plate},{driver})
-            res.status(200).json({"result": true, dataDriver, dataTruck, "add": true})
-        }else{
-            res.status(200).json({"result": true, "add": false})
         }
     },
     deleteDriver : async (req,res) => {

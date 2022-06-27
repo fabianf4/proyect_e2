@@ -23,12 +23,7 @@ const driverSchema = new Schema({
         type: String,
         require: true,
         match: new RegExp('[0-9]{10}$')
-    },
-    truck: {
-        type:Schema.Types.ObjectId,
-        ref: 'truck'
     }
-
 })
 
 module.exports = mongoose.model('driver',driverSchema)
