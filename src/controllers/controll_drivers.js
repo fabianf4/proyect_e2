@@ -1,4 +1,5 @@
 const Driver = require('../models/driver_model')
+const Truck = require('../models/truck_model')
 
 module.exports = {
     index : async (req,res)  => {
@@ -49,6 +50,7 @@ module.exports = {
             const {identyCard} = req.params
             
             const result = await Driver.findOneAndDelete({"identyCard": identyCard })
+            await Truck.findOneAndUpdate({driver:identyCard},{driver:""})
 
             res.status(200).json({"result": true, "data": result})
         }catch (e){

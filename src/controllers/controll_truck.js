@@ -1,5 +1,5 @@
 const Truck = require('../models/truck_model')
-const Driver = require("../models/driver_model");
+const Driver = require("../models/driver_model")
 //a ver
 module.exports = {
     index : async (req,res)  => {
