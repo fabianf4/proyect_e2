@@ -13,7 +13,6 @@ module.exports = {
     },
     addTruck : async (req,res) => {
         try{
-
             const truck = new Truck(req.body)
 
             await truck.save()
