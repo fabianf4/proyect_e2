@@ -1,31 +1,29 @@
 const mongoose = require('mongoose')
 const {Schema} = mongoose
 
-const truckSchema = new Schema({
-    plate : {
+const driverSchema = new Schema({
+    identyCard : {
         type: String,
         require: true,
         unique: true,
-        match: new RegExp('[A-Z]{3}[-][0-9]{3}$')
     },
-    brand :{
+    names :{
         type: String,
         require: true
     },
-    model : {
+    lastName : {
+        type: String,
+        require: true
+    },
+    birth : {
         type: Date,
         require: true
     },
-    weight : {
-        type: Number,
-        require: true
-    },
-    driver: {
+    cellPhone : {
         type: String,
-        ref: 'driver'
+        require: true,
+        match: new RegExp('[0-9]{10}$')
     }
-
-
 })
 
-module.exports = mongoose.model('truck',truckSchema)
+module.exports = mongoose.model('driver',driverSchema)
