@@ -10,7 +10,7 @@ const PORT = process.env.PORT
 require('./drivers/driver_mongoose')
 
 //cors
-const cors = require('cors');
+const cors = require('cors')
 app.use(cors())
 
 //other
